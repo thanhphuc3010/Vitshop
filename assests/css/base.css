@@ -1,0 +1,127 @@
+:root {
+    --white-color:#fff; 
+    --black-color:#000;
+    --text-color:#333;
+    --primary-color:rgb(47, 94, 182);
+    --border-color:#dbdbdb;
+
+    --navbar-height: 34px;
+    --header-height:120px;
+    --header-with-search-height: calc(var(--header-height) - var(--navbar-height));
+}
+
+* {
+    box-sizing: inherit;
+}
+
+html {
+    /* Thông thường với fontsize là 100% thì 1rem=16px. Sử dụng 1 hack: Font size:62.5% thì 1rem=10x */
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+.grid{
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.grid__full-width{
+    width: 100%;
+
+}
+
+.grid__row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ /* Animation */
+@keyframes fadeIn {
+    from {
+    opacity: 0;
+    }
+    to {
+    opacity: 1;
+    }
+}
+
+@keyframes growth {
+    from {
+        transform: scale(var(--growth-from));
+        }
+    to {
+        transform: scale(var(--growth-to));
+        }
+}
+
+
+ /* Modal */
+.modal{
+    position:fixed;
+    top:0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    animation: fadeIn linear 0.2s;
+}
+
+.modal__overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0, 0, 0, 0.4);
+   
+}
+
+.modal__body{
+    --growth-from: 0.7;
+    --growth-to: 1;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+    animation: growth linear 0.1s;
+}
+
+/* Button control */
+
+.btn {
+    min-width: 124px;
+    height: 36px;
+    text-decoration: none;
+    border: none;
+    border-radius: 2px;
+    font-size: 1.4rem;
+    padding: 0 12px;
+    outline: none;
+    cursor: pointer;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn.btn--size-s {
+    height: 32px;
+    font-size: 1.2rem;
+    padding: 0 8px;
+
+}
+
+.btn.btn--normal:hover{
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.btn.btn--primary{
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.btn.btn--disabled{
+    color: #ccc;
+    cursor: default;
+    background-color: #888;
+}
+
